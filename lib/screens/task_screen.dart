@@ -1,9 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app_class/screens/tasks_list.dart';
+import 'package:todo_app_class/widgets/tasks_list.dart';
 
-class TasksScreen extends StatelessWidget {
+import '../model/task.dart';
+
+class TasksScreen extends StatefulWidget {
   const TasksScreen({super.key});
 
+  @override
+  State<TasksScreen> createState() => _TasksScreenState();
+}
+
+class _TasksScreenState extends State<TasksScreen> {
+  String newTask = '';
+  List<Task> tasks = [
+    Task(title: 'Buy Milk'),
+    Task(title: 'Buy bread'),
+    Task(title: 'Buy bicycle'),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,9 +43,18 @@ class TasksScreen extends StatelessWidget {
                       style: TextStyle(
                           color: Colors.lightBlueAccent, fontSize: 24),
                     ),
-                    TextField(),
+                    TextField(
+                      onChanged: (value) {
+                        newTask = value;
+                      },
+                    ),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          tasks.add(Task(title: newTask));
+                        });
+                        Navigator.pop(context);
+                      },
                       child: Text('ADD'),
                     ),
                   ],
@@ -74,7 +96,7 @@ class TasksScreen extends StatelessWidget {
                       fontWeight: FontWeight.w700),
                 ),
                 Text(
-                  '12 task',
+                  '${tasks.length} task',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -92,7 +114,7 @@ class TasksScreen extends StatelessWidget {
                   topRight: Radius.circular(12),
                 ),
               ),
-              child: TasksList(),
+              child: TasksList(tasks: tasks),
             ),
           )
         ],
