@@ -1,31 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:todo_app_class/example/example.dart';
+import 'package:todo_app_class/model.dart';
 
-import '../model/task.dart';
+import '../model/TaskData.dart';
 
-class TaskTile extends StatefulWidget {
-  const TaskTile({Key? key, required this.task}) : super(key: key);
+class TaskTile extends StatelessWidget {
+  TaskTile({Key? key, required this.task}) : super(key: key);
   final Task task;
 
   @override
-  State<TaskTile> createState() => _TaskTileState();
-}
-
-class _TaskTileState extends State<TaskTile> {
-  bool isChecked = false;
-  @override
   Widget build(BuildContext context) {
     return ListTile(
+      onLongPress: () {
+        Provider.of<TaskData>(context, listen: false).delete(task);
+      },
       title: Text(
-        widget.task.title,
+        task.tiltle,
         style: TextStyle(
-            decoration: widget.task.isDone ? TextDecoration.lineThrough : null),
+            decoration: task.isDone ? TextDecoration.lineThrough : null),
       ),
       trailing: MyCheckbox(
-        isChecked: widget.task.isDone,
+        isChecked: task.isDone,
         func: (bool? value) {
-          setState(() {
-            widget.task.toggleTask();
-          });
+          Provider.of<TaskData>(context, listen: false).toggle(task);
         },
       ),
     );
