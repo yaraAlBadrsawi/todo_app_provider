@@ -43,6 +43,7 @@ class MyCheckbox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Checkbox(
+      activeColor: Color(0xff555B6E),
       value: isChecked,
       onChanged: func,
     );

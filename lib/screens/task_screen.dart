@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:provider/provider.dart';
 import 'package:todo_app_class/widgets/tasks_list.dart';
 
 import '../model/TaskData.dart';
@@ -16,7 +15,7 @@ class TasksScreen extends StatelessWidget {
       Task(title: 'Buy bicycle'),
     ];
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Color(0xff555B6E),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
@@ -36,7 +35,7 @@ class TasksScreen extends StatelessWidget {
                     const Text(
                       'Add Task',
                       textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.blue, fontSize: 24),
+                      style: TextStyle(color: Color(0xff555B6E), fontSize: 24),
                     ),
                     TextField(
                       onChanged: (value) {
@@ -52,6 +51,9 @@ class TasksScreen extends StatelessWidget {
                           Navigator.pop(context);
                         }
                       },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xff555B6E),
+                      ),
                       child: const Text('ADD'),
                     ),
                   ],
@@ -60,7 +62,7 @@ class TasksScreen extends StatelessWidget {
             },
           );
         },
-        backgroundColor: Colors.blue,
+        backgroundColor: Color(0xff555B6E),
         child: const Icon(
           Icons.add,
         ),
@@ -75,11 +77,11 @@ class TasksScreen extends StatelessWidget {
               children: [
                 const CircleAvatar(
                   radius: 32,
-                  backgroundColor: Colors.white,
+                  backgroundColor: Color(0xffC9CDDA),
                   child: Icon(
                     Icons.list,
                     size: 32,
-                    color: Colors.lightBlueAccent,
+                    color: Color(0xff555B6E),
                   ),
                 ),
                 const SizedBox(
@@ -88,14 +90,14 @@ class TasksScreen extends StatelessWidget {
                 const Text(
                   'To Do',
                   style: TextStyle(
-                      color: Colors.white,
+                      color: Color(0xffC9CDDA),
                       fontSize: 54,
                       fontWeight: FontWeight.w700),
                 ),
                 Text(
                   '${Provider.of<TaskData>(context).count} task',
                   style: const TextStyle(
-                    color: Colors.white,
+                    color: Color(0xffC9CDDA),
                     fontSize: 18,
                   ),
                 )
@@ -105,7 +107,7 @@ class TasksScreen extends StatelessWidget {
           Expanded(
             child: Container(
               decoration: const BoxDecoration(
-                color: Colors.white,
+                color: Color(0xffC9CDDA),
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(12),
                   topRight: Radius.circular(12),
