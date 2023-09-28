@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_app_class/core/resources/colors_mangaer.dart';
+import 'package:todo_app_class/core/resources/fonts_manager.dart';
+import 'package:todo_app_class/core/resources/icons_manager.dart';
+import 'package:todo_app_class/core/resources/sizes_manager.dart';
+import 'package:todo_app_class/core/resources/strings_manager.dart';
+import 'package:todo_app_class/core/util/size_util.dart';
 import 'package:todo_app_class/widgets/tasks_list.dart';
 
 import '../core/model/TaskData.dart';
 import '../core/model/task.dart';
-
 
 class TasksScreen extends StatelessWidget {
   @override
@@ -16,27 +21,29 @@ class TasksScreen extends StatelessWidget {
       Task(title: 'Buy bicycle'),
     ];
     return Scaffold(
-      backgroundColor: Color(0xff555B6E),
+      backgroundColor: ManagerColors.primary,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
             context: context,
-            shape: const RoundedRectangleBorder(
+            shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
-                topRight: Radius.circular(12),
-                topLeft: Radius.circular(12),
+                topRight: Radius.circular(ManagerRadius.r12),
+                topLeft: Radius.circular(ManagerRadius.r12),
               ),
             ),
             builder: (context) {
               return Padding(
-                padding: const EdgeInsets.all(24.0),
+                padding: EdgeInsets.all(ManagerWidth.w24),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    const Text(
-                      'Add Task',
+                    Text(
+                      ManagerStrings.addTask,
                       textAlign: TextAlign.center,
-                      style: TextStyle(color: Color(0xff555B6E), fontSize: 24),
+                      style: TextStyle(
+                          color: ManagerColors.primary,
+                          fontSize: ManagerFontSize.s24),
                     ),
                     TextField(
                       onChanged: (value) {
@@ -53,9 +60,9 @@ class TasksScreen extends StatelessWidget {
                         }
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xff555B6E),
+                        backgroundColor: ManagerColors.primary,
                       ),
-                      child: const Text('ADD'),
+                      child: const Text(ManagerStrings.addTask),
                     ),
                   ],
                 ),
@@ -63,43 +70,46 @@ class TasksScreen extends StatelessWidget {
             },
           );
         },
-        backgroundColor: Color(0xff555B6E),
-        child: const Icon(
-          Icons.add,
+        backgroundColor: ManagerColors.primary,
+        child: Icon(
+          ManagerIcons.add,
         ),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 80.0, bottom: 24, left: 24),
+            padding: EdgeInsets.only(
+                top: ManagerHeight.h80,
+                bottom: ManagerHeight.h24,
+                left: ManagerWidth.w24),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const CircleAvatar(
-                  radius: 32,
-                  backgroundColor: Color(0xffC9CDDA),
+                CircleAvatar(
+                  radius: ManagerRadius.r30,
+                  backgroundColor: ManagerColors.background,
                   child: Icon(
-                    Icons.list,
-                    size: 32,
-                    color: Color(0xff555B6E),
+                    ManagerIcons.list,
+                    size: ManagerIconSize.s32,
+                    color: ManagerColors.primary,
                   ),
                 ),
-                const SizedBox(
-                  height: 12,
+                SizedBox(
+                  height: ManagerHeight.h12,
                 ),
-                const Text(
-                  'To Do',
+                Text(
+                  ManagerStrings.ToDo,
                   style: TextStyle(
-                      color: Color(0xffC9CDDA),
-                      fontSize: 54,
-                      fontWeight: FontWeight.w700),
+                      color: ManagerColors.background,
+                      fontSize: ManagerFontSize.s50,
+                      fontWeight: ManagerFontWeight.bold),
                 ),
                 Text(
                   '${Provider.of<TaskData>(context).count} task',
-                  style: const TextStyle(
-                    color: Color(0xffC9CDDA),
-                    fontSize: 18,
+                  style: TextStyle(
+                    color: ManagerColors.background,
+                    fontSize: ManagerFontSize.s18,
                   ),
                 )
               ],
@@ -107,11 +117,11 @@ class TasksScreen extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              decoration: const BoxDecoration(
-                color: Color(0xffC9CDDA),
+              decoration: BoxDecoration(
+                color: ManagerColors.background,
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(12),
-                  topRight: Radius.circular(12),
+                  topLeft: Radius.circular(ManagerRadius.r12),
+                  topRight: Radius.circular(ManagerRadius.r12),
                 ),
               ),
               child: TasksList(tasks: tasks),

@@ -1,6 +1,6 @@
 import '../util/size_util.dart';
 
-class HeightManager {
+class ManagerHeight {
   static double h07 = SizeUtil.setHeight(0.7);
   static double h2 = SizeUtil.setHeight(2);
   static double h4 = SizeUtil.setHeight(4);
@@ -56,7 +56,7 @@ class HeightManager {
   static double h575 = SizeUtil.setHeight(575.0);
 }
 
-class WidthManager {
+class ManagerWidth {
   static double w0 = SizeUtil.setWidth(0);
   static double w1 = SizeUtil.setWidth(1);
   static double w2 = SizeUtil.setWidth(2);
@@ -104,7 +104,7 @@ class WidthManager {
   static double w375 = SizeUtil.setWidth(375.0);
 }
 
-class RadiusManager{
+class ManagerRadius {
   static double r2 = SizeUtil.setRadius(2);
   static double r4 = SizeUtil.setRadius(4);
   static double r6 = SizeUtil.setRadius(6);
@@ -112,7 +112,7 @@ class RadiusManager{
   static double r10 = SizeUtil.setRadius(10);
   static double r12 = SizeUtil.setRadius(12);
   static double r14 = SizeUtil.setRadius(14);
-  static double r15= SizeUtil.setRadius(15);
+  static double r15 = SizeUtil.setRadius(15);
   static double r16 = SizeUtil.setRadius(16);
   static double r26 = SizeUtil.setRadius(26);
   static double r44 = SizeUtil.setRadius(44);
@@ -128,7 +128,7 @@ class RadiusManager{
   static double r100 = SizeUtil.setRadius(100.0);
 }
 
-class IconSizeManager {
+class ManagerIconSize {
   static double s2 = 2;
   static double s4 = 4;
   static double s6 = 6;
@@ -151,7 +151,7 @@ class IconSizeManager {
   static double s44 = 44;
 }
 
-class OpacityManager {
+class ManagerOpacity {
   static double op0_2 = 0.2;
   static double Op_0_3 = 0.3;
   static double op0_4 = 0.4;

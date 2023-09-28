@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import '../util/size_util.dart';
 
 
-class FontFamilyManager {
+class ManagerFontFamily {
   static const String fontFamily = 'Poppins';
 }
 
-class FontWeightManager {
+class ManagerFontWeight {
   static const FontWeight bold = FontWeight.w700;
   static const FontWeight regular = FontWeight.w400;
   static const FontWeight medium = FontWeight.w500;
@@ -15,7 +15,7 @@ class FontWeightManager {
   static const FontWeight w300 = FontWeight.w300;
 }
 
-class FontSizeManager {
+class ManagerFontSize{
   static double s2 = SizeUtil.setFontSize(2);
   static double s4 = SizeUtil.setFontSize(4);
   static double s6 = SizeUtil.setFontSize(6);
