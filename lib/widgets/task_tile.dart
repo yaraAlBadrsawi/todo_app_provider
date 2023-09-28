@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_app_class/example/example.dart';
 import 'package:todo_app_class/model.dart';
 
-import '../model/TaskData.dart';
+import '../core/model/TaskData.dart';
 
 class TaskTile extends StatelessWidget {
   TaskTile({Key? key, required this.task}) : super(key: key);
