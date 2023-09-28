@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_app_class/screens/task_screen.dart';
 
-import 'example/example.dart';
-import 'model/TaskData.dart';
+import 'core/model/TaskData.dart';
 
 void main() {
   runApp(const MyApp());
